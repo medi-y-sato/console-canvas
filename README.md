@@ -1,81 +1,80 @@
 # Console Canvas
 
-Console Canvas is a web application that allows you to create richly formatted text in a WYSIWYG editor and convert it into `console.log()` statements with inline styling, ready to be executed in your browser's developer console.
+![Console Canvas Screenshot](https://via.placeholder.com/800x400?text=Console+Canvas+Screenshot) <!-- Placeholder for a future screenshot -->
 
-## Features
+Console Canvas は、リッチテキストエディタで作成した装飾付きテキストを、ブラウザのコンソールに表示するための `console.log()` 形式の JavaScript コードに変換する Web アプリケーションです。開発者やデバッグ作業を行うユーザーが、視覚的に分かりやすいコンソール出力を手軽に作成できるよう支援します。
 
-- **Rich Text Editing:** Create and style text using a familiar rich text editor interface.
-- **Live `console.log()` Conversion:** See your styled text instantly converted into executable JavaScript `console.log()` code.
-- **Debounced Preview:** The live preview updates intelligently after a brief pause in typing, ensuring a smooth editing experience.
-- **Copy to Clipboard:** Easily copy the generated `console.log()` code to your clipboard for immediate use.
-- **Save/Load Functionality:** Save your editor content to local storage and load it back later.
+このアプリケーションは、サーバーサイドの処理を一切含まない、完全にクライアントサイドのみで動作します。そのため、GitHub Pages のような静的ホスティングサービスに簡単にデプロイ可能です。
 
-## Getting Started
+## 🚀 機能 (Features)
 
-### Prerequisites
+- **リッチテキストエディタ:** 直感的で使いやすい WYSIWYG エディタでテキストを入力・装飾できます。
+  - サポートされる装飾: 太字、斜体、下線、打ち消し線、文字色、背景色。
+- **リアルタイム変換:** エディタの編集内容が、即座に `console.log()` で実行可能な JavaScript コードに変換され、画面に表示されます。
+- **デバウンス付きライブプレビュー:** ユーザーの入力が1秒間停止した後に、生成されたコードが自動的にブラウザのコンソールで実行され、リアルタイムなプレビューを提供します。
+- **コードコピー機能:** 生成された JavaScript コードをワンクリックでクリップボードにコピーできます。
+- **セーブ・ロード機能:** エディタの内容をローカルストレージに保存し、必要な時に復元できます。
 
-Make sure you have Node.js and npm (or yarn/pnpm) installed on your system.
+## 🛠️ 技術スタック (Tech Stack)
 
-### Installation
+- **フロントエンド:** React (Vite)
+- **リッチテキストエディタ:** Quill.js (via `react-quill-new`)
+- **UI コンポーネント:** MUI (Material-UI)
+- **デプロイ:** GitHub Pages (GitHub Actions)
 
-1.  Clone this repository:
+## 💻 開発環境のセットアップ (Setup)
 
+### 前提条件 (Prerequisites)
+
+- Node.js (推奨バージョン: 20.x)
+- npm (または yarn / pnpm)
+
+### インストール (Installation)
+
+1.  リポジトリをクローンします:
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/medi-y-sato/console-canvas.git
     cd console-canvas
     ```
-
-2.  Install the dependencies:
-
+2.  依存関係をインストールします:
     ```bash
     npm install
-    # or yarn install
-    # or pnpm install
+    # または yarn install
+    # または pnpm install
     ```
 
-### Running the Application
+### 開発サーバーの起動 (Running the Application)
 
-To start the development server:
+開発サーバーを起動するには、以下のコマンドを実行します:
 
 ```bash
 npm run dev
-# or yarn dev
-# or pnpm dev
+# または yarn dev
+# または pnpm dev
 ```
 
-This will typically open the application in your browser at `http://localhost:5173` (or another available port).
+通常、`http://localhost:5173` (または利用可能な別のポート) でアプリケーションがブラウザで開きます。
 
-## Usage
+## 🚀 デプロイ (Deployment)
 
-1.  **Edit Text:** Use the rich text editor on the left to type and style your text. Experiment with bold, italics, colors, and more.
-2.  **View Generated Code:** As you type, the right panel will automatically update with the corresponding `console.log()` JavaScript code.
-3.  **Live Preview:** Open your browser's developer console (usually by pressing `F12` or `Ctrl+Shift+I` / `Cmd+Option+I`) to see the live output of your styled text.
-4.  **Copy Code:** Click the "Copy to Clipboard" button to grab the generated code.
-5.  **Save/Load:** Use the "Save" button to store your current editor content in your browser's local storage. Click "Load" to retrieve it.
-
-## Project Structure
-
-- `src/App.jsx`: The main application component, handling state, conversion logic, and layout.
-- `src/Editor.jsx`: Wraps the `react-quill` component for rich text editing.
-- `src/CodeOutput.jsx`: Displays the generated `console.log()` code and provides a copy button.
-- `src/main.jsx`: Entry point for the React application.
-- `src/index.css`: Global styles for the application.
-
-## Technologies Used
-
-- **React:** A JavaScript library for building user interfaces.
-- **Vite:** A fast build tool for modern web projects.
-- **Quill.js (via `react-quill`):** A powerful rich text editor.
-- **MUI (Material-UI):** A comprehensive React UI library for beautiful and responsive designs.
-
-## Deployment
-
-This application is designed to be deployed as a static site, for example, on GitHub Pages. To build the application for production:
+このアプリケーションは静的サイトとして設計されており、GitHub Pages などのサービスにデプロイできます。本番用にビルドするには:
 
 ```bash
 npm run build
-# or yarn build
-# or pnpm build
+# または yarn build
+# または pnpm build
 ```
 
-The build output will be located in the `dist/` directory.
+ビルドされたファイルは `dist/` ディレクトリに出力されます。GitHub Pages への自動デプロイは、`.github/workflows/deploy.yml` で設定されています。
+
+## 🐛 既知の問題 (Known Issues)
+
+- **エディタのレイアウト崩れ:** 長いアルファベットの文字列（スペースを含まない単語）を入力すると、エディタが画面幅を超えて広がり、レイアウトが崩れる問題が完全に解決されていない可能性があります。
+
+## 🤝 貢献 (Contributing)
+
+貢献を歓迎します！バグ報告や機能提案は、GitHub の Issues をご利用ください。
+
+## 📄 ライセンス (License)
+
+[MIT License](LICENSE) <!-- If you have a LICENSE file, link it here -->
